@@ -62,10 +62,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
     <!-- Camera mounting point (the threaded screw hole in the bottom) -->
-    <link name="${name}_base_link" />
+    <link name="${name}_camera_link" />
     <joint name="${name}_base_joint" type="fixed">
       <parent link="${parent}"/>
-      <child link="${name}_base_link"/>
+      <child link="${name}_camera_link"/>
       <xacro:insert_block name="origin" />
     </joint>
 
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       </collision>
     </link>
     <joint name="${name}_camera_center_joint" type="fixed">
-      <parent link="${name}_base_link"/>
+      <parent link="${name}_camera_link"/>
       <child link="${name}_camera_center"/>
       <origin xyz="0 0 ${height/2}" rpy="0 ${bottom_slope} 0" />
     </joint>
