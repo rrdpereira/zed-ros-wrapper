@@ -37,6 +37,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="camera_id"             default="0"/>
     <arg name="gpu_id"                default="-1"/>
 
+    <arg name="resolution"              default="2"/>
+    <arg name="grab_frame_rate"         default="15"/>
+    <arg name="img_downsample_factor"   default="0.5"/>
+    <arg name="depth_downsample_factor" default="0.5"/>  
+
     <group if="$(arg publish_urdf)">
         <param name="zed_description"
                command="$(find xacro)/xacro '$(find zed_wrapper)/urdf/zed_descr.urdf.xacro'
@@ -71,6 +76,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <param name="general/zed_id"                    value="$(arg camera_id)"/>
         <!-- GPU ID -->
         <param name="general/gpu_id"                    value="$(arg gpu_id)"/>
+        <param name="general/grab_frame_rate"           value="$(arg grab_frame_rate)"/>
+        <param name="general/resolution"                value="$(arg resolution)"/>
+        <param name="video/img_downsample_factor"       value="$(arg img_downsample_factor)"/> 
+        <param name="depth/depth_downsample_factor"     value="$(arg depth_downsample_factor)"/>
         <!-- Disable TF publishing -->
         <param name="pos_tracking/publish_tf"            value="false"/>
         <param name="pos_tracking/publish_map_tf"        value="false"/>
